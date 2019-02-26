@@ -15,7 +15,7 @@ do
             sudo docker-compose up -d
 
             echo $'\nInstall dependencies for api...\n'
-            sudo docker exec -it supplier_php bash -c 'apt-get update && apt-get install zip git -y'
+#            sudo docker exec -it supplier_php bash -c 'apt-get update && apt-get install zip git -y'
             sudo docker exec -it supplier_php composer install
 
             echo $'\nInstall dependencies for client...\n'
