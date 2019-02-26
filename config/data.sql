@@ -1,0 +1,1 @@
+CREATE DATABASE IF NOT EXISTS supplier_test;
