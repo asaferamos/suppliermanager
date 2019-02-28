@@ -21,6 +21,6 @@ class CompanyController extends Controller
 
         $company->save();
 
-        return response()->json(array('success' => true, $company), 201);
+        return response()->json(array('company_id' => $company->id), 201);
     }
 }
