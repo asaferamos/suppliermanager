@@ -23,4 +23,20 @@ class SupplierTest extends TestCase
         $response = $this->actingAs($user, 'api')->json('POST', '/api/suppliers',$data);
         $response->assertStatus(201);
     }
+
+    public function testCreateNewSupplierWithBadEamil()
+    {
+        $company = \App\Company::find(1);
+
+        $data = [
+            'name'           => "Supplier One",
+            'email'          => "supplier@supplie",
+            'monthlypayment' => 300.00,
+            'company_id'     => $company->id
+        ];
+
+        $user = factory(\App\User::class)->create();
+        $response = $this->actingAs($user, 'api')->json('POST', '/api/suppliers',$data);
+        $response->assertStatus(422);
+    }
 }
