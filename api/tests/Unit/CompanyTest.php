@@ -43,6 +43,6 @@ class CompanyTest extends TestCase
 
         $user = factory(\App\User::class)->create();
         $response = $this->actingAs($user, 'api')->json('POST', '/api/companies',$data);
-        $response->assertStatus(400);
+        $response->assertStatus(422);
     }
 }
