@@ -11,6 +11,8 @@ mysql:
     environment:
         - MYSQL_DATABASE=supplier
         - MYSQL_ROOT_PASSWORD=supplier
+    security_opt:
+          - seccomp:unconfined
 
 php:
     container_name: supplier_php
