@@ -19,7 +19,6 @@ class CreateRelationshipUserCompany extends Migration
 
             $table->integer('user_id')->unsigned();
             $table->integer('company_id')->unsigned();
-            $table->integer('quantity');
 
             $table->foreign('user_id')
                 ->references('id')->on('users')

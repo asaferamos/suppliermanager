@@ -18,6 +18,12 @@ class CreateSuppliersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->float('monthlypayment');
+            $table->integer('company_id')->unsigned();
+
+            $table->foreign('company_id')
+                ->references('id')->on('companies')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
