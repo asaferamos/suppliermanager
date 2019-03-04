@@ -13,9 +13,8 @@ class CreateRelationshipUserCompany extends Migration
      */
     public function up()
     {
-        Schema::create('user_company', function (Blueprint $table) {
+        Schema::create('company_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
 
             $table->integer('user_id')->unsigned();
             $table->integer('company_id')->unsigned();
@@ -37,6 +36,6 @@ class CreateRelationshipUserCompany extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_company');
+        Schema::dropIfExists('company_user');
     }
 }
