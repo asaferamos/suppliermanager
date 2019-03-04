@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SupplierRequest;
 use App\Jobs\SendEmailActivationOfSupplier;
 use App\Supplier;
+use Illuminate\Support\Facades\Hash;
 
 class SupplierController extends Controller
 {
@@ -17,6 +18,7 @@ class SupplierController extends Controller
             $supplier->email = $request->email;
             $supplier->monthlypayment = $request->monthlypayment;
             $supplier->company_id = $request->company_id;
+            $supplier->hashactivation = Hash::make($request->email);
 
             $supplier->save();
 

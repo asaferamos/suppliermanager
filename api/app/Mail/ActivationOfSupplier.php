@@ -25,6 +25,7 @@ class ActivationOfSupplier extends Mailable
             ->with([
                 'supplierName'  => $this->supplier->name,
                 'urlActivation' => env('APP_CLIENT_URL_ACTIVATION_SUPPLIER')
+                    . sprintf("?email=%s&token=%s", $this->supplier->email, $this->supplier->hashactivation)
             ]);
     }
 }
