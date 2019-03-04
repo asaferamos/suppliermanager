@@ -19,10 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('companies', 'CompanyController');
 
-Route::resource('suppliers', 'SupplierController');
+Route::get('/suppliers/allmonthlypayments', 'SupplierController@allMonthlyPayments');
 
 Route::get('/suppliers/activate/{token}/{supplier}', array(
     'as'   => 'token/supplier',
     'uses' => 'SupplierController@activate'
     )
 )->name('activatesupplier');
+
+Route::resource('suppliers', 'SupplierController');

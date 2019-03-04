@@ -54,4 +54,11 @@ class SupplierController extends Controller
             return response()->json($e->getMessage());
         }
     }
+
+    public function allMonthlyPayments(): float
+    {
+        $sum = Supplier::where('hashactivation',0)->sum('monthlypayment');
+
+        return $sum;
+    }
 }
