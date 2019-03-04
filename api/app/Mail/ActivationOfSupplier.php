@@ -20,10 +20,11 @@ class ActivationOfSupplier extends Mailable
 
     public function build()
     {
-        return $this->markdown('emails.supplier.activation')
+        return $this->view('emails.supplier.activation')
             ->subject('Ative seu email de fornecedor')
             ->with([
-                'supplier' => $this->supplier
+                'supplierName'  => $this->supplier->name,
+                'urlActivation' => env('APP_CLIENT_URL_ACTIVATION_SUPPLIER')
             ]);
     }
 }
